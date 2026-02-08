@@ -1,19 +1,138 @@
 # Med-Multimodal-RAG
 
-🏥 Med-Multimodal-RAG: Bridging the Clinical Modality Gap
+# 🏥 Med-Multimodal-RAG  
+### Bridging the Clinical Modality Gap in Medical Retrieval
 
-🎯 The "Why": Solving the Modality GapTraditional Medical RAG systems often suffer from a Modality Gap. 
-When searching for complex pathologies like "Pneumonia with Pleural Effusion," standard CLIP-based models frequently return "clean" (No Finding) images because they lack clinical context, prioritizing image composition over diagnostic truth.
-This project implements a Multimodal Clinical Engine that correlates:Anatomical Evidence: Chest X-rays (NIH Dataset).Systemic Evidence: Laboratory blood work (Synthea-generated Leukocytes, Platelets, etc.).
-By aligning these two distinct data streams into a single vector space, we move beyond simple "image search" into Diagnostic Discovery.
+---
 
-🚀 The "How": Fused Embedding Strategy (The Secret Sauce)Most RAG implementations treat images as raw pixels. This repo uses a Multimodal Fusion Ingestion Pipeline to "anchor" visual data in clinical truth.
-1. Vector Fusion (Late Fusion)During ingestion, we don't just embed the image. We perform a weighted blend of the visual features and the expert-labeled clinical findings:Vfused​=Normalize(w1​⋅Vpixel​+w2​⋅Vlabel​)
-This physically shifts the image vector closer to its diagnostic neighborhood, ensuring that an "Effusion" X-ray actually ranks for "Effusion" queries.
+## 🎯 The Problem: The Clinical Modality Gap
 
-2. Hybrid RetrievalThe system utilizes a dual-stream retrieval process to prevent "Modality Drowning." 
-By fetching the top N text records and top $N$ image records independently before ranking, we ensure the final "Clinical Brief" contains both lab results and radiology findings.
+Traditional **medical RAG systems** struggle with *true diagnostic relevance*.
 
-🏗️ ArchitectureVector Database: PostgreSQL with pgvector for high-performance similarity search.
-Model: BiomedCLIP (ViT-B-16 + PubMedBERT), specifically pre-trained on medical domain data.
-Data Sources: NIH Chest X-ray 14 & Synthea patient records.
+When querying complex conditions like:
+
+> “Pneumonia with Pleural Effusion”
+
+standard **CLIP-based retrieval** often returns **“No Finding”** X-rays because:
+
+- Models prioritize **visual similarity**
+- Not **clinical correctness**
+- Lack **systemic patient context**
+
+**Result → Pretty images. Wrong diagnosis.**
+
+This project fixes that.
+
+---
+
+## 🧠 The Core Idea
+
+We build a **Multimodal Clinical Retrieval Engine** that aligns:
+
+### 1️⃣ Anatomical Evidence
+- Chest X-rays  
+- Source: **NIH Chest X-ray14**
+
+### 2️⃣ Systemic Evidence
+- Blood lab measurements  
+- Source: **Synthea synthetic EHR**
+  - Leukocytes  
+  - Platelets  
+  - Other hematology markers  
+
+Both modalities are embedded into a **shared clinical vector space**.
+
+This transforms retrieval from:
+
+**Image search → Diagnostic discovery**
+
+---
+
+## 🚀 The Secret Sauce: Fused Embedding Strategy
+
+Most RAG pipelines embed **pixels only**.  
+We **anchor images in clinical truth**.
+
+### 1️⃣ Vector Fusion (Late Fusion)
+
+During ingestion, we combine:
+
+- Visual embedding from the X-ray  
+- Expert-labeled clinical findings  
+
+```
+V_fused = Normalize(w1 * V_pixel + w2 * V_label)
+```
+
+### Why this matters
+
+This **physically shifts** an image vector toward its:
+
+- True **diagnostic neighborhood**
+- Not just **visual look-alikes**
+
+So:
+
+- Effusion X-ray → retrieved for **Effusion query**  
+- Not → random clean lung image
+
+---
+
+### 2️⃣ Hybrid Retrieval (Anti-Modality-Drowning)
+
+We run **dual independent searches**:
+
+- Top **N text records**
+- Top **N image records**
+
+Then merge and rank to produce a:
+
+## 🩺 Clinical Brief
+
+Guaranteeing:
+
+- Radiology findings **present**
+- Lab abnormalities **present**
+- No single modality dominates retrieval
+
+---
+
+## 🏗️ Architecture
+
+### Vector Database
+- **PostgreSQL + pgvector**
+- High-performance similarity search  
+- Scalable and production-friendly
+
+### Multimodal Model
+- **BiomedCLIP**
+  - ViT-B-16 (vision)
+  - PubMedBERT (text)
+- Pretrained on **biomedical corpora**
+
+### Data Sources
+- **NIH Chest X-ray14**
+- **Synthea synthetic patient records**
+
+---
+
+## 📊 What This Enables
+
+- Clinically meaningful **image retrieval**
+- Multimodal **diagnostic context generation**
+- Foundation for:
+  - Clinical decision support
+  - Radiology search engines
+  - Medical AI copilots
+
+
+
+## ⚠️ Disclaimer
+
+This project is **for research purposes only**.  
+**Not approved for clinical or diagnostic use.**
+
+---
+
+
+
