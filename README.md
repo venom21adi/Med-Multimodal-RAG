@@ -1,6 +1,5 @@
 # Med-Multimodal-RAG
 
-# 🏥 Med-Multimodal-RAG  
 ### Bridging the Clinical Modality Gap in Medical Retrieval
 
 ---
