@@ -248,7 +248,7 @@ as a step toward **clinically grounded medical RAG**.
 
 Hybrid multimodal retrieval across radiology + lab data:
 
-![Demo](assets/With_HNSW.gif)
+![Demo](assets/With_HNSW_Index.gif)
 
 
 
