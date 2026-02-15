@@ -244,6 +244,12 @@ as a step toward **clinically grounded medical RAG**.
 
 ---
 
+## 📽️ Demo
+
+Hybrid multimodal retrieval across radiology + lab data:
+
+![Demo](assets/With_HNSW.gif)
+
 
 
 
