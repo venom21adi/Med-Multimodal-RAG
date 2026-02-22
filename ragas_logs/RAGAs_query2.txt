@@ -1,0 +1,44 @@
+=================================================================
+🏥 MEDICAL RAG PIPELINE — RAGAS EVALUATION (Ollama)
+   Generation model : mistral:7b-instruct
+   Judge model      : mistral:7b-instruct
+   Embed model      : nomic-embed-text
+=================================================================
+
+📋 Running pipeline on 1 evaluation queries...
+
+  [1/1] Show me patients with high resting heart rate indicating pos...
+  Rewritten: 'Heart Rate [Rate/min] - Resting'
+  [RETRIEVE] embedding query: 'Heart Rate [Rate/min] - Resting'
+    Retrieved : 5 records
+    Answer    : Patients with high resting heart rate (indicating possible tachycardia) accordin...
+
+⚙️  Configuring RAGAS to use Ollama...
+⚙️  Running RAGAS metrics...
+
+Evaluating: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 4/4 [03:47<00:00, 56.77s/it]
+
+=================================================================
+📊 RAGAS EVALUATION REPORT
+=================================================================
+
+  Metric                   Score  Status      What it means
+  ---------------------- -------  ----------  -----------------------------------
+  faithfulness             1.000  🟢 Good      Did LLM answer use ONLY retrieved context?
+  answer_relevancy         0.938  🟢 Good      Does the answer address the question?
+  context_precision        1.000  🟢 Good      Were retrieved chunks genuinely useful?
+  context_recall           0.500  🔴 Poor      Was enough context retrieved to answer fully?
+
+─────────────────────────────────────────────────────────────────
+PER-QUERY BREAKDOWN
+─────────────────────────────────────────────────────────────────
+
+  Q1: Show me patients with high resting heart rate indicating possible...
+      faithfulness           1.000
+      answer_relevancy       0.938
+      context_precision      1.000
+    ⚠️ context_recall         0.500
+
+💾 Structured JSON log → ragas_logs\ragas_run_20260222_130733.json
+💾 Full text log      → ragas_logs\ragas_run_20260222_130733.log
+=================================================================
