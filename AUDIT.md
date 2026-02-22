@@ -188,4 +188,4 @@ This audit layer is now integrated as a first-class evaluation component in the 
 
 # 📁 Logs
 
-Structured JSON logs:
+Structured JSON logs: ragas_logs
