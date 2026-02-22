@@ -1,0 +1,56 @@
+{
+  "run_id": "20260222_131449",
+  "config": {
+    "generation_model": "mistral:7b-instruct",
+    "judge_model": "mistral:7b-instruct",
+    "embed_model": "nomic-embed-text",
+    "top_k": 5
+  },
+  "summary_scores": {
+    "faithfulness": 0.0,
+    "answer_relevancy": 0.6501,
+    "context_precision": 0.8875,
+    "context_recall": 0.5
+  },
+  "per_query": [
+    {
+      "query_index": 1,
+      "question": "What blood pressure readings are available for patients showing hypertension risk?",
+      "ground_truth": "Hypertension is indicated by systolic blood pressure above 130 mmHg or diastolic above 80 mmHg. Relevant patient observations should include both systolic and diastolic measurements.",
+      "answer": "Patient b89ab36c-1335-4fa4-9040-d86c6c22dc8d has a Diastolic Blood Pressure value of 99.0 mm[Hg] on date 2010-05-11T10:34:53Z.\nPatient ab6a2662-f6d1-4da6-b3ce-3929d68650d7 has a Diastolic Blood Pressure value of 99.0 mm[Hg] on date 2015-01-31T16:13:43Z.\nPatient 9e081e53-a748-47c5-8e36-d9c858d23c14 has a Diastolic Blood Pressure value of 99.0 mm[Hg] on date 2002-08-11T13:25:58Z.\nPatient c3d53676-4539-4ac7-98a9-cc893eb9f63b has a Diastolic Blood Pressure value of 99.0 mm[Hg] on date 2015-12-06T07:51:42Z.\nPatient f9149e25-1799-44bf-a5aa-449b41161345 has a Diastolic Blood Pressure value of 99.0 mm[Hg] on date 2012-10-23T11:09:02Z.",
+      "retrieved_records": [
+        {
+          "patient_id": "b89ab36c-1335-4fa4-9040-d86c6c22dc8d",
+          "description": "Observation: Diastolic Blood Pressure value: 99.0 mm[Hg] on date 2010-05-11T10:34:53Z",
+          "similarity": 0.7968289377195403
+        },
+        {
+          "patient_id": "ab6a2662-f6d1-4da6-b3ce-3929d68650d7",
+          "description": "Observation: Diastolic Blood Pressure value: 99.0 mm[Hg] on date 2015-01-31T16:13:43Z",
+          "similarity": 0.7968289377195403
+        },
+        {
+          "patient_id": "9e081e53-a748-47c5-8e36-d9c858d23c14",
+          "description": "Observation: Diastolic Blood Pressure value: 99.0 mm[Hg] on date 2002-08-11T13:25:58Z",
+          "similarity": 0.7968289377195403
+        },
+        {
+          "patient_id": "c3d53676-4539-4ac7-98a9-cc893eb9f63b",
+          "description": "Observation: Diastolic Blood Pressure value: 99.0 mm[Hg] on date 2015-12-06T07:51:42Z",
+          "similarity": 0.7968289377195403
+        },
+        {
+          "patient_id": "f9149e25-1799-44bf-a5aa-449b41161345",
+          "description": "Observation: Diastolic Blood Pressure value: 99.0 mm[Hg] on date 2012-10-23T11:09:02Z",
+          "similarity": 0.7968289377195403
+        }
+      ],
+      "ragas_scores": {
+        "faithfulness": 0.0,
+        "answer_relevancy": 0.6501,
+        "context_precision": 0.8875,
+        "context_recall": 0.5
+      }
+    }
+  ]
+}

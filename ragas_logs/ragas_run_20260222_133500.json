@@ -1,0 +1,56 @@
+{
+  "run_id": "20260222_133500",
+  "config": {
+    "generation_model": "mistral:7b-instruct",
+    "judge_model": "mistral:7b-instruct",
+    "embed_model": "nomic-embed-text",
+    "top_k": 5
+  },
+  "summary_scores": {
+    "faithfulness": 1.0,
+    "answer_relevancy": 1.0,
+    "context_precision": 1.0,
+    "context_recall": 0.0
+  },
+  "per_query": [
+    {
+      "query_index": 1,
+      "question": "Which patients reported significant pain levels during their observations?",
+      "ground_truth": "Pain severity is measured on a 0-10 verbal numeric scale. Scores of 4 or above are generally considered moderate to severe pain requiring clinical attention.",
+      "answer": "Based on the provided records, the patients who reported significant pain levels during their observations are:\n\n1. Patient: 8d4c4326-e9de-4f45-9a4c-f8c36bff89ae, with a pain severity score of 1.0 on date 2015-08-16T00:26:23Z\n2. Patient: 10339b10-3cd1-4ac3-ac13-ec26728cb592, with a pain severity score of 1.0 on dates:\n   - 2011-08-16T12:58:08Z\n   - 2011-08-02T12:58:08Z\n   - 2010-07-27T12:58:08Z\n   - 2014-08-05T12:58:08Z",
+      "retrieved_records": [
+        {
+          "patient_id": "8d4c4326-e9de-4f45-9a4c-f8c36bff89ae",
+          "description": "Observation: Pain severity - 0-10 verbal numeric rating [Score] - Reported value: 1.0 {score} on date 2015-08-16T00:26:23Z",
+          "similarity": 0.7870097648790776
+        },
+        {
+          "patient_id": "10339b10-3cd1-4ac3-ac13-ec26728cb592",
+          "description": "Observation: Pain severity - 0-10 verbal numeric rating [Score] - Reported value: 1.0 {score} on date 2011-08-16T12:58:08Z",
+          "similarity": 0.7870097648790776
+        },
+        {
+          "patient_id": "10339b10-3cd1-4ac3-ac13-ec26728cb592",
+          "description": "Observation: Pain severity - 0-10 verbal numeric rating [Score] - Reported value: 1.0 {score} on date 2011-08-02T12:58:08Z",
+          "similarity": 0.7870097648790776
+        },
+        {
+          "patient_id": "10339b10-3cd1-4ac3-ac13-ec26728cb592",
+          "description": "Observation: Pain severity - 0-10 verbal numeric rating [Score] - Reported value: 1.0 {score} on date 2010-07-27T12:58:08Z",
+          "similarity": 0.7870097648790776
+        },
+        {
+          "patient_id": "10339b10-3cd1-4ac3-ac13-ec26728cb592",
+          "description": "Observation: Pain severity - 0-10 verbal numeric rating [Score] - Reported value: 1.0 {score} on date 2014-08-05T12:58:08Z",
+          "similarity": 0.7870097648790776
+        }
+      ],
+      "ragas_scores": {
+        "faithfulness": 1.0,
+        "answer_relevancy": 1.0,
+        "context_precision": 1.0,
+        "context_recall": 0.0
+      }
+    }
+  ]
+}

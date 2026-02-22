@@ -1,0 +1,56 @@
+{
+  "run_id": "20260222_132240",
+  "config": {
+    "generation_model": "mistral:7b-instruct",
+    "judge_model": "mistral:7b-instruct",
+    "embed_model": "nomic-embed-text",
+    "top_k": 5
+  },
+  "summary_scores": {
+    "faithfulness": 1.0,
+    "answer_relevancy": 0.0,
+    "context_precision": 1.0,
+    "context_recall": 0.3333
+  },
+  "per_query": [
+    {
+      "query_index": 1,
+      "question": "Find patients with BMI in the underweight or overweight range",
+      "ground_truth": "BMI below 18.5 indicates underweight and above 25.0 indicates overweight. Patient BMI observations should be compared against these thresholds.",
+      "answer": "Based on the provided records, all patients have a Body Mass Index (BMI) of 19.0 kg/m^2. This BMI value falls within the normal weight range according to standard BMI categories. However, since the clinical query asked for patients with BMI in the underweight or overweight range, no patients from these records meet that criteria. Here are the patient IDs and their respective BMI values:\n\n1. 2f5c3b8b-fce5-4c27-9cd0-c294d1d82054 - 19.0 kg/m^2 on date 2013-03-25T07:57:37Z\n2. 1a83f5ad-8f5a-4455-835e-22cc1ef19576 - 19.0 kg/m^2 on date 2012-03-28T06:25:57Z\n3. 7c18105e-5f61-44f5-b47a-c1a8b83f542b - 19.0 kg/m^2 on date 2011-12-09T14:13:17Z\n4. 596843e0-b4a6-456b-8484-ed88f877ea8c - 19.0 kg/m^2 on date 2013-09-17T08:58:18Z\n5. 1aa71b23-790e-4d22-92da-c689682c8993 - 19.0 kg/m^2 on date 2013-07-08T20:03:59Z",
+      "retrieved_records": [
+        {
+          "patient_id": "2f5c3b8b-fce5-4c27-9cd0-c294d1d82054",
+          "description": "Observation: Body Mass Index value: 19.0 kg/m2 on date 2013-03-25T07:57:37Z",
+          "similarity": 0.851011651633787
+        },
+        {
+          "patient_id": "1a83f5ad-8f5a-4455-835e-22cc1ef19576",
+          "description": "Observation: Body Mass Index value: 19.0 kg/m2 on date 2012-03-28T06:25:57Z",
+          "similarity": 0.851011651633787
+        },
+        {
+          "patient_id": "7c18105e-5f61-44f5-b47a-c1a8b83f542b",
+          "description": "Observation: Body Mass Index value: 19.0 kg/m2 on date 2011-12-09T14:13:17Z",
+          "similarity": 0.851011651633787
+        },
+        {
+          "patient_id": "596843e0-b4a6-456b-8484-ed88f877ea8c",
+          "description": "Observation: Body Mass Index value: 19.0 kg/m2 on date 2013-09-17T08:58:18Z",
+          "similarity": 0.851011651633787
+        },
+        {
+          "patient_id": "1aa71b23-790e-4d22-92da-c689682c8993",
+          "description": "Observation: Body Mass Index value: 19.0 kg/m2 on date 2013-07-08T20:03:59Z",
+          "similarity": 0.851011651633787
+        }
+      ],
+      "ragas_scores": {
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.0,
+        "context_precision": 1.0,
+        "context_recall": 0.3333
+      }
+    }
+  ]
+}

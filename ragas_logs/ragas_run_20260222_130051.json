@@ -1,0 +1,56 @@
+{
+  "run_id": "20260222_130051",
+  "config": {
+    "generation_model": "mistral:7b-instruct",
+    "judge_model": "mistral:7b-instruct",
+    "embed_model": "nomic-embed-text",
+    "top_k": 5
+  },
+  "summary_scores": {
+    "faithfulness": 0.75,
+    "answer_relevancy": 0.8546,
+    "context_precision": 1.0,
+    "context_recall": 0.0
+  },
+  "per_query": [
+    {
+      "query_index": 1,
+      "question": "Which patients have elevated white blood cell counts suggesting infection?",
+      "ground_truth": "Patients with leukocyte counts above normal range (above 11.0 10*3/uL) may indicate bacterial infection or inflammation.",
+      "answer": "Based on the provided records, the patients with elevated white blood cell counts are:\n\n1. Patient: 02f9aadd-72de-4b20-b381-f4c3b1cf7aa3 (Observation values: 1.1 10*3/uL on date 2004-01-18T20:06:53Z, 1.5 10*3/uL on date 2004-04-21T20:06:53Z)\n2. Patient: 59cf17d9-6c13-4333-a1cb-cc5fdf63366d (Observation value: 1.5 10*3/uL on date 1995-05-17T20:06:53Z)\n3. Patient: b2b612b0-d4ac-4b83-8d33-4ed6b295c01c (Observation values: 1.5 10*3/uL on date 2009-02-01T06:49:10Z, 1.5 10*3/uL on date 2008-03-14T06:49:10Z)",
+      "retrieved_records": [
+        {
+          "patient_id": "02f9aadd-72de-4b20-b381-f4c3b1cf7aa3",
+          "description": "Observation: Leukocytes [#/volume] in Blood by Automated count value: 1.1 10*3/uL on date 2004-01-18T20:06:53Z",
+          "similarity": 0.9659988880157471
+        },
+        {
+          "patient_id": "59cf17d9-6c13-4333-a1cb-cc5fdf63366d",
+          "description": "Observation: Leukocytes [#/volume] in Blood by Automated count value: 1.5 10*3/uL on date 1995-05-17T20:06:53Z",
+          "similarity": 0.9648239304072841
+        },
+        {
+          "patient_id": "b2b612b0-d4ac-4b83-8d33-4ed6b295c01c",
+          "description": "Observation: Leukocytes [#/volume] in Blood by Automated count value: 1.5 10*3/uL on date 2009-02-01T06:49:10Z",
+          "similarity": 0.9648239304072841
+        },
+        {
+          "patient_id": "02f9aadd-72de-4b20-b381-f4c3b1cf7aa3",
+          "description": "Observation: Leukocytes [#/volume] in Blood by Automated count value: 1.5 10*3/uL on date 2004-04-21T20:06:53Z",
+          "similarity": 0.9648239304072841
+        },
+        {
+          "patient_id": "b2b612b0-d4ac-4b83-8d33-4ed6b295c01c",
+          "description": "Observation: Leukocytes [#/volume] in Blood by Automated count value: 1.5 10*3/uL on date 2008-03-14T06:49:10Z",
+          "similarity": 0.9648239304072841
+        }
+      ],
+      "ragas_scores": {
+        "faithfulness": 0.75,
+        "answer_relevancy": 0.8546,
+        "context_precision": 1.0,
+        "context_recall": 0.0
+      }
+    }
+  ]
+}
