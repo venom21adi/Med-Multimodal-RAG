@@ -251,5 +251,77 @@ Hybrid multimodal retrieval across radiology + lab data:
 ![Demo](assets/With_HNSW_Index.gif)
 
 
+## 🔍 RAGAS-Based Reliability Audit
+
+This project now includes a structured evaluation pipeline using **RAGAS** to audit the Medical RAG system across multiple reliability dimensions.
+
+---
+
+### 🧠 Evaluation Stack
+
+- **Generation Model:** `mistral:7b-instruct` (Ollama)
+- **Judge Model:** `mistral:7b-instruct`
+- **Embedding Model (RAGAS):** `nomic-embed-text`
+- **Retrieval Embeddings:** `BiomedCLIP`
+- **Vector Index:** `PostgreSQL + pgvector (HNSW)`
+
+#### Corpus Scale
+- ~152,000 structured Synthea clinical records  
+- ~3,500 NIH Chest X-ray studies  
+
+---
+
+### 📊 Metrics Evaluated
+
+- **Faithfulness** — Did the LLM answer strictly use retrieved context?
+- **Answer Relevancy** — Did the answer directly address the question?
+- **Context Precision** — Were retrieved chunks genuinely useful?
+- **Context Recall** — Was enough relevant evidence retrieved?
+
+---
+
+### 🧪 Example Audit Results
+
+#### 1️⃣ White Blood Cell Query
+
+| Metric              | Score |
+|---------------------|-------|
+| Faithfulness        | 0.750 |
+| Answer Relevancy    | 0.855 |
+| Context Precision   | 1.000 |
+| Context Recall      | 0.000 |
+
+---
+
+#### 2️⃣ Heart Rate Query
+
+| Metric              | Score |
+|---------------------|-------|
+| Faithfulness        | 1.000 |
+| Answer Relevancy    | 0.938 |
+| Context Precision   | 1.000 |
+| Context Recall      | 0.500 |
+
+---
+
+### 🔎 Key Insight
+
+> High generation quality can mask retrieval coverage failure.
+
+Even when answers appear grounded and relevant, insufficient retrieval coverage can reduce system reliability — especially in high-stakes domains like healthcare.
+
+---
+
+### 🗂 Audit Artifacts
+
+The repository includes:
+
+- Full RAGAS evaluation pipeline
+- Structured JSON logs for reproducibility
+- Detailed per-query metric breakdown
+- Query rewriting layer for structured clinical alignment
+
+---
+
 
 
